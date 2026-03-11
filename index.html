@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aero Lanche — Os melhores lanches da cidade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header class="header" id="inicio">
+    <nav class="navbar">
+      <a href="#inicio" class="logo">
+        <span class="logo-icon">🍔</span>
+        <span class="logo-text">AERO LANCHE</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio" class="nav-link">Início</a></li>
+        <li><a href="#cardapio" class="nav-link">Cardápio</a></li>
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="https://wa.me/5599724970" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Fazer Pedido
+        </a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO / BANNER ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <p class="hero-badge">🔥 Aero Lanche</p>
+      <h1 class="hero-title">Que tal um suculento<br /><span class="highlight">hambúrguer</span> agora?</h1>
+      <p class="hero-subtitle">Os melhores lanches da cidade, feitos com amor e qualidade!</p>
+      <div class="hero-buttons">
+        <a href="#cardapio" class="btn btn-primary btn-lg">Ver Cardápio 🍔</a>
+        <a href="https://wa.me/5599724970" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
+          📲 Pedir pelo WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-emoji">🍔</div>
+    </div>
+  </section>
+
+  <!-- ===== CARDÁPIO ===== -->
+  <section class="section cardapio" id="cardapio">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nosso <span class="highlight">Cardápio</span></h2>
+        <p class="section-subtitle">Escolha o seu favorito e peça agora!</p>
+      </div>
+
+      <!-- Filtros -->
+      <div class="filters" role="tablist" aria-label="Categorias do cardápio">
+        <button class="filter-btn active" data-category="todos" role="tab" aria-selected="true">Todos</button>
+        <button class="filter-btn" data-category="lanches" role="tab" aria-selected="false">Lanches</button>
+        <button class="filter-btn" data-category="hotdog" role="tab" aria-selected="false">Hot-Dog's</button>
+        <button class="filter-btn" data-category="prato" role="tab" aria-selected="false">Lanches no Prato</button>
+        <button class="filter-btn" data-category="omelete" role="tab" aria-selected="false">Omelete Recheado</button>
+      </div>
+
+      <!-- Cards -->
+      <div class="cards-grid" id="cardsGrid">
+
+        <!-- LANCHES -->
+        <article class="card" data-category="lanches">
+          <div class="card-emoji">🍔</div>
+          <div class="card-body">
+            <span class="card-badge">Lanches</span>
+            <h3 class="card-title">Aero Burguer Clássico</h3>
+            <p class="card-desc">Hambúrguer artesanal, alface, tomate, queijo e molho especial</p>
+            <div class="card-footer">
+              <span class="card-price">R$ 18,00</span>
+              <button class="btn btn-primary btn-sm add-to-cart"
+                data-name="Aero Burguer Clássico"
+                data-price="18.00">
+                + Adicionar
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="lanches">
+          <div class="card-emoji">🍔</div>
+          <div class="card-body">
+            <span class="card-badge">Lanches</span>
+            <h3 class="card-title">Aero Duplo</h3>
+            <p class="card-desc">Dois hambúrgueres, bacon crocante, queijo duplo e maionese da casa</p>
+            <div class="card-footer">
+              <span class="card-price">R$ 24,00</span>
+              <button class="btn btn-primary btn-sm add-to-cart"
+                data-name="Aero Duplo"
+                data-price="24.00">
+                + Adicionar
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="lanches">
+          <div class="card-emoji">🍗</div>
+          <div class="card-body">
+            <span class="card-badge">Lanches</span>
+            <h3 class="card-title">Frango Crocante</h3>
+            <p class="card-desc">Filé de frango empanado, alface, tomate e molho ranch</p>
+            <div class="card-footer">
+              <span class="card-price">R$ 20,00</span>
+              <button class="btn btn-primary btn-sm add-to-cart"
+                data-name="Frango Crocante"
+                data-price="20.00">
+                + Adicionar
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- HOT-DOG'S -->
+        <article class="card" data-category="hotdog">
+          <div class="card-emoji">🌭</div>
+          <div class="card-body">
+            <span class="card-badge">Hot-Dog's</span>
+            <h3 class="card-title">Hot-Dog Tradicional</h3>
+            <p class="card-desc">Salsicha, molho de tomate, mostarda e ketchup</p>
+            <div class="card-footer">
+              <span class="card-price">R$ 12,00</span>
+              <button class="btn btn-primary btn-sm add-to-cart"
+                data-name="Hot-Dog Tradicional"
+                data-price="12.00">
+                + Adicionar
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="hotdog">
+          <div class="card-emoji">🌭</div>
+          <div class="card-body">
+            <span class="card-badge">Hot-Dog's</span>
+            <h3 class="card-title">Hot-Dog Especial</h3>
+            <p class="card-desc">Salsicha dupla, bacon, queijo, batata palha e molho especial</p>
+            <div class="card-footer">
+              <span class="card-price">R$ 16,00</span>
+              <button class="btn btn-primary btn-sm add-to-cart"
+                data-name="Hot-Dog Especial"
+                data-price="16.00">
+                + Adicionar
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- LANCHES NO PRATO -->
+        <article class="card" data-category="prato">
+          <div class="card-emoji">🍽️</div>
+          <div class="card-body">
+            <span class="card-badge">Lanches no Prato</span>
+            <h3 class="card-title">Lanche no Prato Simples</h3>
+            <p class="card-desc">Hambúrguer artesanal servido no prato com fritas</p>
+            <div class="card-footer">
+              <span class="card-price">R$ 22,00</span>
+              <button class="btn btn-primary btn-sm add-to-cart"
+                data-name="Lanche no Prato Simples"
+                data-price="22.00">
+                + Adicionar
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="prato">
+          <div class="card-emoji">🍽️</div>
+          <div class="card-body">
+            <span class="card-badge">Lanches no Prato</span>
+            <h3 class="card-title">Lanche no Prato Completo</h3>
+            <p class="card-desc">Hambúrguer duplo no prato com fritas, onion rings e salada</p>
+            <div class="card-footer">
+              <span class="card-price">R$ 28,00</span>
+              <button class="btn btn-primary btn-sm add-to-cart"
+                data-name="Lanche no Prato Completo"
+                data-price="28.00">
+                + Adicionar
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- OMELETE RECHEADO -->
+        <article class="card" data-category="omelete">
+          <div class="card-emoji">🥚</div>
+          <div class="card-body">
+            <span class="card-badge">Omelete Recheado</span>
+            <h3 class="card-title">Omelete de Frango</h3>
+            <p class="card-desc">Omelete recheado com frango desfiado e queijo derretido</p>
+            <div class="card-footer">
+              <span class="card-price">R$ 15,00</span>
+              <button class="btn btn-primary btn-sm add-to-cart"
+                data-name="Omelete de Frango"
+                data-price="15.00">
+                + Adicionar
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="omelete">
+          <div class="card-emoji">🥚</div>
+          <div class="card-body">
+            <span class="card-badge">Omelete Recheado</span>
+            <h3 class="card-title">Omelete Especial</h3>
+            <p class="card-desc">Omelete com bacon, queijo, milho e catupiry</p>
+            <div class="card-footer">
+              <span class="card-price">R$ 18,00</span>
+              <button class="btn btn-primary btn-sm add-to-cart"
+                data-name="Omelete Especial"
+                data-price="18.00">
+                + Adicionar
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section class="section sobre" id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-text">
+          <h2 class="section-title">Sobre a <span class="highlight">Aero Lanche</span></h2>
+          <p>Somos uma lanchonete apaixonada por sabor, tradição e qualidade. Cada lanche é preparado com ingredientes frescos, selecionados diariamente para garantir o melhor para você.</p>
+          <p>Localizada na esquina da R. São Manoel com R. Tietê, a Aero Lanche é ponto de encontro de quem ama um bom lanche feito com carinho.</p>
+          <p>Atendemos de segunda a domingo, sempre a partir das 18h. Venha nos visitar ou peça pelo WhatsApp!</p>
+          <a href="https://wa.me/5599724970" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            📲 Fale Conosco
+          </a>
+        </div>
+        <div class="sobre-gallery" aria-hidden="true">
+          <div class="gallery-item">🍔</div>
+          <div class="gallery-item">🌭</div>
+          <div class="gallery-item">🍟</div>
+          <div class="gallery-item">🥚</div>
+          <div class="gallery-item">🧀</div>
+          <div class="gallery-item">🥓</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTATO / RODAPÉ ===== -->
+  <footer class="footer" id="contato">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-icon">🍔</span>
+            <span class="logo-text">AERO LANCHE</span>
+          </div>
+          <p>Os melhores lanches da cidade, feitos com amor e qualidade!</p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <span class="social-icon">📸</span> Instagram
+            </a>
+            <a href="https://wa.me/5599724970" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <span class="social-icon">📲</span> WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-info">
+          <h3>Informações</h3>
+          <ul>
+            <li>📍 R. São Manoel / R. Tietê</li>
+            <li>📞 (99) 9724-9703</li>
+            <li>🕕 Segunda a Domingo, a partir das 18h</li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>Links</h3>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#cardapio">Cardápio</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Aero Lanche. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== CARRINHO FLUTUANTE ===== -->
+  <button class="cart-fab" id="cartFab" aria-label="Abrir carrinho">
+    🛒
+    <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+  </button>
+
+  <!-- ===== MODAL DO CARRINHO ===== -->
+  <div class="cart-overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-label="Carrinho de compras">
+    <div class="cart-modal">
+      <div class="cart-header">
+        <h2>🛒 Seu Carrinho</h2>
+        <button class="cart-close" id="cartClose" aria-label="Fechar carrinho">✕</button>
+      </div>
+
+      <div class="cart-items" id="cartItems">
+        <p class="cart-empty">Seu carrinho está vazio 😕</p>
+      </div>
+
+      <div class="cart-summary" id="cartSummary" style="display:none">
+        <div class="cart-total">
+          <span>Total:</span>
+          <strong id="cartTotal">R$ 0,00</strong>
+        </div>
+        <button class="btn btn-primary btn-lg btn-block" id="checkoutBtn">
+          📲 Finalizar Pedido via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
