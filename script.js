@@ -2,6 +2,66 @@
   'use strict';
 
   /* ===========================
+     DYNAMIC OPEN/CLOSED BADGE
+  =========================== */
+  var heroBadge = document.querySelector('.hero-badge');
+  if (heroBadge) {
+    var now = new Date();
+    var hour = now.getHours();
+    // Open every day from 18:00 onwards
+    var isOpen = hour >= 18;
+    if (isOpen) {
+      heroBadge.textContent = '🔥 Aberto agora • A partir das 18h';
+    } else {
+      heroBadge.textContent = '🕐 Fechado agora • Abrimos às 18h';
+      heroBadge.style.background = 'rgba(100,100,100,0.2)';
+      heroBadge.style.borderColor = 'rgba(150,150,150,0.4)';
+    }
+  }
+
+  /* ===========================
+     NAVBAR SCROLL EFFECT
+  =========================== */
+  var header = document.querySelector('.header');
+
+  if (header) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
+  /* ===========================
+     FADE-IN ON SCROLL
+  =========================== */
+  var fadeEls = document.querySelectorAll('.fade-in');
+
+  if ('IntersectionObserver' in window && fadeEls.length > 0) {
+    /* Trigger fade-in when at least 12% of the element is visible */
+  var FADE_IN_THRESHOLD = 0.12;
+  var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: FADE_IN_THRESHOLD });
+
+    fadeEls.forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    // Fallback: show all immediately
+    fadeEls.forEach(function (el) {
+      el.classList.add('visible');
+    });
+  }
+
+  /* ===========================
      MOBILE MENU
   =========================== */
   var hamburgerBtn = document.getElementById('hamburgerBtn');

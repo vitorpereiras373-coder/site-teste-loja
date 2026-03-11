@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -22,13 +23,13 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#inicio" class="nav-link">Início</a></li>
         <li><a href="#cardapio" class="nav-link">Cardápio</a></li>
-        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#galeria" class="nav-link">Galeria</a></li>
         <li><a href="#contato" class="nav-link">Contato</a></li>
       </ul>
 
       <div class="nav-actions">
-        <a href="https://wa.me/5599724970" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          Fazer Pedido
+        <a href="https://wa.me/5599724970" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pulse">
+          Pedir Agora
         </a>
         <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false">
           <span></span>
@@ -41,47 +42,95 @@
 
   <!-- ===== HERO / BANNER ===== -->
   <section class="hero" id="hero">
-    <div class="hero-content">
-      <p class="hero-badge">🔥 Aero Lanche</p>
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-in">
+      <p class="hero-badge">🔥 Aberto agora &bull; A partir das 18h</p>
       <h1 class="hero-title">Que tal um suculento<br /><span class="highlight">hambúrguer</span> agora?</h1>
-      <p class="hero-subtitle">Os melhores lanches da cidade, feitos com amor e qualidade!</p>
+      <p class="hero-subtitle">Os melhores lanches da cidade, feitos com amor e ingredientes frescos!</p>
       <div class="hero-buttons">
         <a href="#cardapio" class="btn btn-primary btn-lg">Ver Cardápio 🍔</a>
         <a href="https://wa.me/5599724970" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
-          📲 Pedir pelo WhatsApp
+          <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
       </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>500+</strong>
+          <span>Clientes Satisfeitos</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <strong><i class="fas fa-star"></i> 4.9</strong>
+          <span>Avaliação</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <strong><i class="fas fa-rocket"></i></strong>
+          <span>Entrega Rápida</span>
+        </div>
+      </div>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hero-emoji">🍔</div>
+    <div class="hero-scroll-arrow" aria-hidden="true">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ===== DESTAQUES / FEATURES ===== -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+          <div class="feature-text">
+            <h3>Ingredientes Frescos</h3>
+            <p>Selecionados diariamente</p>
+          </div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+          <div class="feature-text">
+            <h3>Entrega Rápida</h3>
+            <p>Direto na sua porta</p>
+          </div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon"><i class="fas fa-star"></i></div>
+          <div class="feature-text">
+            <h3>Melhor da Cidade</h3>
+            <p>Avaliação 4.9 estrelas</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ===== CARDÁPIO ===== -->
   <section class="section cardapio" id="cardapio">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header fade-in">
         <h2 class="section-title">Nosso <span class="highlight">Cardápio</span></h2>
         <p class="section-subtitle">Escolha o seu favorito e peça agora!</p>
       </div>
 
       <!-- Filtros -->
       <div class="filters" role="tablist" aria-label="Categorias do cardápio">
-        <button class="filter-btn active" data-category="todos" role="tab" aria-selected="true">Todos</button>
-        <button class="filter-btn" data-category="lanches" role="tab" aria-selected="false">Lanches</button>
-        <button class="filter-btn" data-category="hotdog" role="tab" aria-selected="false">Hot-Dog's</button>
-        <button class="filter-btn" data-category="prato" role="tab" aria-selected="false">Lanches no Prato</button>
-        <button class="filter-btn" data-category="omelete" role="tab" aria-selected="false">Omelete Recheado</button>
+        <button class="filter-btn active" data-category="todos" role="tab" aria-selected="true"><i class="fas fa-th"></i> Todos</button>
+        <button class="filter-btn" data-category="lanches" role="tab" aria-selected="false">🍔 Lanches</button>
+        <button class="filter-btn" data-category="hotdog" role="tab" aria-selected="false">🌭 Hot-Dog's</button>
+        <button class="filter-btn" data-category="prato" role="tab" aria-selected="false">🍽️ Lanches no Prato</button>
+        <button class="filter-btn" data-category="omelete" role="tab" aria-selected="false">🥚 Omelete Recheado</button>
       </div>
 
       <!-- Cards -->
       <div class="cards-grid" id="cardsGrid">
 
         <!-- LANCHES -->
-        <article class="card" data-category="lanches">
-          <div class="card-emoji">🍔</div>
+        <article class="card fade-in" data-category="lanches">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1550317138-10000687a72b?w=400&q=80" alt="Aero Burguer Clássico" loading="lazy" />
+          </div>
           <div class="card-body">
-            <span class="card-badge">Lanches</span>
+            <span class="card-badge">🍔 Lanche</span>
             <h3 class="card-title">Aero Burguer Clássico</h3>
             <p class="card-desc">Hambúrguer artesanal, alface, tomate, queijo e molho especial</p>
             <div class="card-footer">
@@ -95,10 +144,12 @@
           </div>
         </article>
 
-        <article class="card" data-category="lanches">
-          <div class="card-emoji">🍔</div>
+        <article class="card fade-in" data-category="lanches">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=400&q=80" alt="Aero Duplo" loading="lazy" />
+          </div>
           <div class="card-body">
-            <span class="card-badge">Lanches</span>
+            <span class="card-badge">🍔 Lanche</span>
             <h3 class="card-title">Aero Duplo</h3>
             <p class="card-desc">Dois hambúrgueres, bacon crocante, queijo duplo e maionese da casa</p>
             <div class="card-footer">
@@ -112,10 +163,12 @@
           </div>
         </article>
 
-        <article class="card" data-category="lanches">
-          <div class="card-emoji">🍗</div>
+        <article class="card fade-in" data-category="lanches">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=400&q=80" alt="Frango Crocante" loading="lazy" />
+          </div>
           <div class="card-body">
-            <span class="card-badge">Lanches</span>
+            <span class="card-badge">🍔 Lanche</span>
             <h3 class="card-title">Frango Crocante</h3>
             <p class="card-desc">Filé de frango empanado, alface, tomate e molho ranch</p>
             <div class="card-footer">
@@ -130,10 +183,12 @@
         </article>
 
         <!-- HOT-DOG'S -->
-        <article class="card" data-category="hotdog">
-          <div class="card-emoji">🌭</div>
+        <article class="card fade-in" data-category="hotdog">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1612392166886-ee8475b03af2?w=400&q=80" alt="Hot-Dog Tradicional" loading="lazy" />
+          </div>
           <div class="card-body">
-            <span class="card-badge">Hot-Dog's</span>
+            <span class="card-badge">🌭 Hot-Dog</span>
             <h3 class="card-title">Hot-Dog Tradicional</h3>
             <p class="card-desc">Salsicha, molho de tomate, mostarda e ketchup</p>
             <div class="card-footer">
@@ -147,10 +202,12 @@
           </div>
         </article>
 
-        <article class="card" data-category="hotdog">
-          <div class="card-emoji">🌭</div>
+        <article class="card fade-in" data-category="hotdog">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1620802543936-5b0e80f4c42c?w=400&q=80" alt="Hot-Dog Especial" loading="lazy" />
+          </div>
           <div class="card-body">
-            <span class="card-badge">Hot-Dog's</span>
+            <span class="card-badge">🌭 Hot-Dog</span>
             <h3 class="card-title">Hot-Dog Especial</h3>
             <p class="card-desc">Salsicha dupla, bacon, queijo, batata palha e molho especial</p>
             <div class="card-footer">
@@ -165,10 +222,12 @@
         </article>
 
         <!-- LANCHES NO PRATO -->
-        <article class="card" data-category="prato">
-          <div class="card-emoji">🍽️</div>
+        <article class="card fade-in" data-category="prato">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80" alt="Lanche no Prato Simples" loading="lazy" />
+          </div>
           <div class="card-body">
-            <span class="card-badge">Lanches no Prato</span>
+            <span class="card-badge">🍽️ Prato</span>
             <h3 class="card-title">Lanche no Prato Simples</h3>
             <p class="card-desc">Hambúrguer artesanal servido no prato com fritas</p>
             <div class="card-footer">
@@ -182,10 +241,12 @@
           </div>
         </article>
 
-        <article class="card" data-category="prato">
-          <div class="card-emoji">🍽️</div>
+        <article class="card fade-in" data-category="prato">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400&q=80" alt="Lanche no Prato Completo" loading="lazy" />
+          </div>
           <div class="card-body">
-            <span class="card-badge">Lanches no Prato</span>
+            <span class="card-badge">🍽️ Prato</span>
             <h3 class="card-title">Lanche no Prato Completo</h3>
             <p class="card-desc">Hambúrguer duplo no prato com fritas, onion rings e salada</p>
             <div class="card-footer">
@@ -200,10 +261,12 @@
         </article>
 
         <!-- OMELETE RECHEADO -->
-        <article class="card" data-category="omelete">
-          <div class="card-emoji">🥚</div>
+        <article class="card fade-in" data-category="omelete">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1510693206972-df098062cb71?w=400&q=80" alt="Omelete de Frango" loading="lazy" />
+          </div>
           <div class="card-body">
-            <span class="card-badge">Omelete Recheado</span>
+            <span class="card-badge">🥚 Omelete</span>
             <h3 class="card-title">Omelete de Frango</h3>
             <p class="card-desc">Omelete recheado com frango desfiado e queijo derretido</p>
             <div class="card-footer">
@@ -217,10 +280,12 @@
           </div>
         </article>
 
-        <article class="card" data-category="omelete">
-          <div class="card-emoji">🥚</div>
+        <article class="card fade-in" data-category="omelete">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&q=80" alt="Omelete Especial" loading="lazy" />
+          </div>
           <div class="card-body">
-            <span class="card-badge">Omelete Recheado</span>
+            <span class="card-badge">🥚 Omelete</span>
             <h3 class="card-title">Omelete Especial</h3>
             <p class="card-desc">Omelete com bacon, queijo, milho e catupiry</p>
             <div class="card-footer">
@@ -238,26 +303,63 @@
     </div>
   </section>
 
-  <!-- ===== SOBRE ===== -->
+  <!-- ===== GALERIA ===== -->
+  <section class="section galeria" id="galeria">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">Nossos Pratos <span class="highlight">📸</span></h2>
+        <p class="section-subtitle">Cada prato é uma obra de arte feita com paixão</p>
+      </div>
+      <div class="galeria-grid">
+        <div class="galeria-item fade-in">
+          <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&q=80" alt="Prato da Aero Lanche" loading="lazy" />
+          <div class="galeria-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="galeria-item fade-in">
+          <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=80" alt="Prato da Aero Lanche" loading="lazy" />
+          <div class="galeria-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="galeria-item fade-in">
+          <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600&q=80" alt="Prato da Aero Lanche" loading="lazy" />
+          <div class="galeria-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="galeria-item fade-in">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80" alt="Prato da Aero Lanche" loading="lazy" />
+          <div class="galeria-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="galeria-item fade-in">
+          <img src="https://images.unsplash.com/photo-1432139509613-5c4255815697?w=600&q=80" alt="Prato da Aero Lanche" loading="lazy" />
+          <div class="galeria-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="galeria-item fade-in">
+          <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80" alt="Prato da Aero Lanche" loading="lazy" />
+          <div class="galeria-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE / NOSSA HISTÓRIA ===== -->
   <section class="section sobre" id="sobre">
     <div class="container">
       <div class="sobre-grid">
-        <div class="sobre-text">
-          <h2 class="section-title">Sobre a <span class="highlight">Aero Lanche</span></h2>
+        <div class="sobre-text fade-in">
+          <h2 class="section-title">Nossa <span class="highlight">História</span></h2>
           <p>Somos uma lanchonete apaixonada por sabor, tradição e qualidade. Cada lanche é preparado com ingredientes frescos, selecionados diariamente para garantir o melhor para você.</p>
           <p>Localizada na esquina da R. São Manoel com R. Tietê, a Aero Lanche é ponto de encontro de quem ama um bom lanche feito com carinho.</p>
           <p>Atendemos de segunda a domingo, sempre a partir das 18h. Venha nos visitar ou peça pelo WhatsApp!</p>
+          <ul class="sobre-diferenciais">
+            <li><i class="fas fa-check-circle"></i> Ingredientes 100% frescos</li>
+            <li><i class="fas fa-check-circle"></i> Receitas artesanais exclusivas</li>
+            <li><i class="fas fa-check-circle"></i> Atendimento rápido e amigável</li>
+            <li><i class="fas fa-check-circle"></i> Entrega rápida na região</li>
+          </ul>
           <a href="https://wa.me/5599724970" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            📲 Fale Conosco
+            <i class="fab fa-whatsapp"></i> Fale Conosco
           </a>
         </div>
-        <div class="sobre-gallery" aria-hidden="true">
-          <div class="gallery-item">🍔</div>
-          <div class="gallery-item">🌭</div>
-          <div class="gallery-item">🍟</div>
-          <div class="gallery-item">🥚</div>
-          <div class="gallery-item">🧀</div>
-          <div class="gallery-item">🥓</div>
+        <div class="sobre-image fade-in">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Hambúrguer Aero Lanche" loading="lazy" />
         </div>
       </div>
     </div>
@@ -273,33 +375,37 @@
             <span class="logo-icon">🍔</span>
             <span class="logo-text">AERO LANCHE</span>
           </div>
-          <p>Os melhores lanches da cidade, feitos com amor e qualidade!</p>
+          <p>Os melhores lanches da cidade, feitos com amor e ingredientes frescos!</p>
           <div class="social-links">
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <span class="social-icon">📸</span> Instagram
+              <i class="fab fa-instagram"></i> Instagram
             </a>
             <a href="https://wa.me/5599724970" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-              <span class="social-icon">📲</span> WhatsApp
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i class="fab fa-facebook"></i> Facebook
             </a>
           </div>
         </div>
 
         <div class="footer-info">
-          <h3>Informações</h3>
+          <h3>Contato</h3>
           <ul>
-            <li>📍 R. São Manoel / R. Tietê</li>
-            <li>📞 (99) 9724-9703</li>
-            <li>🕕 Segunda a Domingo, a partir das 18h</li>
+            <li><i class="fas fa-map-marker-alt"></i> R. São Manoel / R. Tietê</li>
+            <li><i class="fas fa-phone"></i> (99) 9724-9703</li>
+            <li><i class="fas fa-clock"></i> Seg-Dom a partir das 18h</li>
           </ul>
         </div>
 
         <div class="footer-links">
-          <h3>Links</h3>
+          <h3>Links Rápidos</h3>
           <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#cardapio">Cardápio</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <li><a href="#inicio"><i class="fas fa-chevron-right"></i> Início</a></li>
+            <li><a href="#cardapio"><i class="fas fa-chevron-right"></i> Cardápio</a></li>
+            <li><a href="#galeria"><i class="fas fa-chevron-right"></i> Galeria</a></li>
+            <li><a href="#sobre"><i class="fas fa-chevron-right"></i> Sobre</a></li>
+            <li><a href="#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
           </ul>
         </div>
 
@@ -312,15 +418,15 @@
 
   <!-- ===== CARRINHO FLUTUANTE ===== -->
   <button class="cart-fab" id="cartFab" aria-label="Abrir carrinho">
-    🛒
+    <i class="fas fa-shopping-cart"></i>
     <span class="cart-count" id="cartCount" aria-live="polite">0</span>
   </button>
 
-  <!-- ===== MODAL DO CARRINHO ===== -->
+  <!-- ===== DRAWER DO CARRINHO ===== -->
   <div class="cart-overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-label="Carrinho de compras">
     <div class="cart-modal">
       <div class="cart-header">
-        <h2>🛒 Seu Carrinho</h2>
+        <h2>Seu Pedido 🍔</h2>
         <button class="cart-close" id="cartClose" aria-label="Fechar carrinho">✕</button>
       </div>
 
@@ -330,11 +436,11 @@
 
       <div class="cart-summary" id="cartSummary" style="display:none">
         <div class="cart-total">
-          <span>Total:</span>
+          <span>Subtotal:</span>
           <strong id="cartTotal">R$ 0,00</strong>
         </div>
-        <button class="btn btn-primary btn-lg btn-block" id="checkoutBtn">
-          📲 Finalizar Pedido via WhatsApp
+        <button class="btn btn-checkout btn-lg btn-block" id="checkoutBtn">
+          <i class="fab fa-whatsapp"></i> Finalizar pelo WhatsApp
         </button>
       </div>
     </div>
