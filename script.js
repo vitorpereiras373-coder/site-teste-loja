@@ -117,6 +117,7 @@
      CART STATE
   =========================== */
   var cart = [];
+  var selectedPayment = 'pix';
 
   function findCartItem(name) {
     return cart.find(function (item) { return item.name === name; });
@@ -267,8 +268,12 @@
 
   // Close on Escape key
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && cartOverlay && cartOverlay.classList.contains('open')) {
-      closeCart();
+    if (e.key === 'Escape') {
+      if (productModalOverlay && productModalOverlay.classList.contains('open')) {
+        closeProductModal();
+      } else if (cartOverlay && cartOverlay.classList.contains('open')) {
+        closeCart();
+      }
     }
   });
 
@@ -285,15 +290,32 @@
       });
       var total = cart.reduce(function (sum, item) { return sum + item.price * item.qty; }, 0);
 
+      var paymentLabels = { pix: 'Pix ✅', cartao: 'Cartão 💳', dinheiro: 'Dinheiro 💵' };
+      var paymentText = paymentLabels[selectedPayment] || 'Pix ✅';
+
       var message =
         'Olá! Gostaria de fazer um pedido:\n' +
         lines.join('\n') +
-        '\nTotal: ' + formatPrice(total);
+        '\nTotal: ' + formatPrice(total) +
+        '\nForma de pagamento: ' + paymentText;
 
       var url = 'https://wa.me/5599724970?text=' + encodeURIComponent(message);
       window.open(url, '_blank', 'noopener,noreferrer');
     });
   }
+
+  /* ===========================
+     PAYMENT SELECTION
+  =========================== */
+  document.querySelectorAll('.payment-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.payment-btn').forEach(function (b) {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+      selectedPayment = btn.getAttribute('data-payment');
+    });
+  });
 
   /* ===========================
      SECURITY HELPERS
@@ -317,9 +339,119 @@
   }
 
   /* ===========================
+     PRODUCT MODAL
+  =========================== */
+  var productModalOverlay = document.getElementById('productModalOverlay');
+  var productModalClose = document.getElementById('productModalClose');
+  var productModalImg = document.getElementById('productModalImg');
+  var productModalBadge = document.getElementById('productModalBadge');
+  var productModalTitle = document.getElementById('productModalTitle');
+  var productModalDesc = document.getElementById('productModalDesc');
+  var productModalPrice = document.getElementById('productModalPrice');
+  var productModalIngredients = document.getElementById('productModalIngredients');
+  var productModalAdd = document.getElementById('productModalAdd');
+
+  // Current product data for the modal "Add to Cart" button
+  var modalCurrentName = '';
+  var modalCurrentPrice = 0;
+
+  function openProductModal(card) {
+    var img = card.getAttribute('data-img') || '';
+    var ingredients = card.getAttribute('data-ingredients') || '';
+    var titleEl = card.querySelector('.card-title');
+    var descEl = card.querySelector('.card-desc');
+    var priceEl = card.querySelector('.card-price');
+    var badgeEl = card.querySelector('.card-badge');
+    var addBtn = card.querySelector('.add-to-cart');
+
+    modalCurrentName = addBtn ? addBtn.getAttribute('data-name') : (titleEl ? titleEl.textContent : '');
+    modalCurrentPrice = addBtn ? parseFloat(addBtn.getAttribute('data-price')) : 0;
+
+    if (productModalImg) {
+      productModalImg.src = img;
+      productModalImg.alt = modalCurrentName;
+    }
+    if (productModalBadge) productModalBadge.textContent = badgeEl ? badgeEl.textContent : '';
+    if (productModalTitle) productModalTitle.textContent = titleEl ? titleEl.textContent : '';
+    if (productModalDesc) productModalDesc.textContent = descEl ? descEl.textContent : '';
+    if (productModalPrice) productModalPrice.textContent = priceEl ? priceEl.textContent : '';
+
+    if (productModalIngredients) {
+      productModalIngredients.innerHTML = '';
+      if (ingredients) {
+        ingredients.split(',').forEach(function (ing) {
+          var li = document.createElement('li');
+          li.textContent = ing.trim();
+          productModalIngredients.appendChild(li);
+        });
+      }
+    }
+
+    if (productModalOverlay) {
+      productModalOverlay.classList.add('open');
+      productModalOverlay.removeAttribute('aria-hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeProductModal() {
+    if (productModalOverlay) {
+      productModalOverlay.classList.remove('open');
+      productModalOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Open modal on card image or title click
+  document.querySelectorAll('.card').forEach(function (card) {
+    card.querySelectorAll('.card-clickable').forEach(function (el) {
+      el.addEventListener('click', function () {
+        openProductModal(card);
+      });
+    });
+  });
+
+  // Close modal buttons
+  if (productModalClose) productModalClose.addEventListener('click', closeProductModal);
+
+  if (productModalOverlay) {
+    productModalOverlay.addEventListener('click', function (e) {
+      if (e.target === productModalOverlay) closeProductModal();
+    });
+  }
+
+  // Add to cart from modal
+  if (productModalAdd) {
+    productModalAdd.addEventListener('click', function () {
+      if (!modalCurrentName || isNaN(modalCurrentPrice)) return;
+      var existing = findCartItem(modalCurrentName);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name: modalCurrentName, price: modalCurrentPrice, qty: 1 });
+      }
+      updateCartCount();
+      closeProductModal();
+
+      // Visual feedback on the card button too
+      var cardBtn = document.querySelector('.add-to-cart[data-name="' + escapeAttr(modalCurrentName) + '"]');
+      if (cardBtn) {
+        var original = cardBtn.textContent;
+        cardBtn.textContent = '✓ Adicionado!';
+        cardBtn.disabled = true;
+        setTimeout(function () {
+          cardBtn.textContent = original;
+          cardBtn.disabled = false;
+        }, 1200);
+      }
+    });
+  }
+
+  /* ===========================
      INITIALISE
   =========================== */
   updateCartCount();
   cartOverlay && cartOverlay.setAttribute('aria-hidden', 'true');
+  productModalOverlay && productModalOverlay.setAttribute('aria-hidden', 'true');
 
 })();
